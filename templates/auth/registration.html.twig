@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{# Stylesheet Block #}
+{% block stylesheets %}
+<style>
+    .login {
+        border: 1px solid #000000;
+    }
+    .submit-button {
+        margin-left: 1% !important;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="col s6">
+                    <h3>Learn Symfony</h3>
+                </div>
+                <div class="col s6">
+                    <div class="col s3 offset-s6"><h6>Login</h6></div>
+                    <div class="col s3"><h6>Sign Up</h6></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <form class="row login" action="{{ path('create_user') }}" method="POST">
+                    <div class="input-field col s6">
+                        <input id="first_name" name="first_name"
+                               type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" name="last_name"
+                               type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="email" name="email"
+                               type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="password" name="password"
+                               type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="confirm_password"
+                               type="password" class="validate">
+                        <label for="confirm_password">Confirm Password</label>
+                    </div>
+
+                    {# Submit Button #}
+                    <div class="row">
+                        <div class="col s12 submit-button">
+                            <button class="btn waves-effect waves-light" type="submit">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% for message in app.flashes('message') %}
+                <div class="chip">
+                    <div class="flash-notice">
+                        {{ message }}
+                        <i class="close material-icons">close</i>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

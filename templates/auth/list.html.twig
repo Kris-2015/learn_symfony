@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{# Stylesheet Block #}
+{% block stylesheets %}
+    <style>
+        .login {
+            border: 1px solid #000000;
+        }
+        .submit-button {
+            margin-left: 1% !important;
+        }
+        .gridExample {
+            background-color: #C82829;
+        }
+    </style>
+{% endblock %}
+
+{# Body of the view#}
+{% block body %}
+
+    <div class="container">
+        <div class="row  card-panel teal lighten-2">
+            <div class="col s3">id</div>
+            <div class="col s3">First Name</div>
+            <div class="col s3">Last Name</div>
+            <div class="col s3">Email</div>
+        </div>
+
+        {% for user in users %}
+            <div class="row">
+                <div class="col s3">{{ user.getId }}</div>
+                <div class="col s3">{{ user.getFirstName }}</div>
+                <div class="col s3">{{ user.getLastName }}</div>
+                <div class="col s3">{{ user.getEmail }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <ol>
+
+    </ol>
+{% endblock %}
+
+{# Javascript Files#}
+{% block javascripts %}
+
+{% endblock %}
